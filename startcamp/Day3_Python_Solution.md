@@ -152,7 +152,7 @@ map 함수를 이용하여 prices의 값들을 모두 int형으로 변환한 뒤
 
 ## HTML/CSS
 
-### HTML
+## HTML
 
 `HTML`은 HyperText Markup Language의 약자로 웹 문서를 구조화 하는데 사용되는 언어이다.
 
