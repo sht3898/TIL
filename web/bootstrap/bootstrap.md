@@ -14,7 +14,7 @@
 
 
 
-spacer(1rem) * 0.25 = 16px * 0.25
+spacer(1rem) * 0.25 = 16px * 0.25   <=> 1rem = 16px
 
 camel case
 
@@ -22,3 +22,27 @@ snake-case
 
 kebab-case
 
+
+
+## Spacing
+
+* `margin`이나 `padding` 설정을 통해 여백을 만듦
+* ex) mt-1 : margin-top
+
+![1565064963450](./b1.png)
+
+* 음수도 가능
+
+![1565065020036](./b2.png)
+
+* auto => 자동으로 위치 설정
+
+  ex) mx-auto
+
+
+
+## Color
+
+* 활용법 => .bg-primary(background-color:primary)
+* 
+* 
