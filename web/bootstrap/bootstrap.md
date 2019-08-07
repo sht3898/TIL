@@ -44,5 +44,12 @@ kebab-case
 ## Color
 
 * 활용법 => .bg-primary(background-color:primary)
-* 
-* 
+* div
+  * 박스 형태로 설정되고 정렬
+  * width, height 지정 가능
+  * 하나 입력할 때마다 줄바꿈 처리
+
+* span
+  * 줄 단위로 영역이 설정
+  * width, height 지정 불가(inline 속성)
+  * 입력해도 같은 줄에서 표시 됨
