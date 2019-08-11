@@ -14,10 +14,11 @@
 * 웹 표준
   * `W3C` : World Wide Web Consortium
   * `WHATWG` : Web Hypertext Application Technology Working Group
+* 속상값 입력시 공백 no
 
 
 
-## 1. HTML 문서의 기본 구조
+## HTML 문서의 기본 구조
 
 ```html
 <!DOCTYPE html> <!-- DOCTYPE 선언부 -->
@@ -43,9 +44,9 @@
 
 
 
-## 2. Tag와 DOM TREE(Document Object Model)
+## Tag와 DOM TREE(Document Object Model)
 
-### 2.0 주석(Comment)
+### 0) 주석(Comment)
 
 <!--주석 내용 -->
 
@@ -53,7 +54,7 @@
 
 
 
-### 2.1 요소(Element)
+### 1) 요소(Element)
 
 <'h1> 여는 태그 contents <''/h1> 닫는 태그
 
@@ -61,7 +62,7 @@
 
 
 
-### 2.2 Self-closing element
+### 2) Self-closing element
 
 ```html
 <img src="url"/>
@@ -71,7 +72,7 @@
 
 
 
-### 2.3 속성(Attribute)
+### 3) 속성(Attribute)
 
 * 태그에는 속성이 지정될 수 있다.
 * id, class, style 속성은 태그와 상관없이 모두 사용 가능하다.
@@ -79,7 +80,9 @@
 
 
 
-### 2.4 DOM 트리
+### 4) DOM 트리
+
+* 태그 안에 태그가 있는 방식으로 구조화 되어 있는 것
 
 * 태그는 중첩되어 사용가능하며, 이때 위와 같은 관계를 갖는다.
 
@@ -90,3 +93,103 @@
 * 형제 관계
 
   ![sibling](./images/sibling.png)
+
+```html
+<body>
+    <h1></h1>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+    </ul>
+</body>
+```
+
+- `<h1>`과 `<ul>`은 형제 관계
+- `시맨틱 태그(Semantic Tag)`
+  - `<div>` `</div>`
+
+
+
+## HTML
+
+- `open in browser` ,`HTML Snippets` 설치
+
+- `open in browser` - alt + b 하면 브라우저에서 열기 가능
+
+- crtl + shift + p -> settings.json에서 html과 css 설정 추가
+
+  ```html
+  {
+      "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+      "editor.fontFamily": "'Fira Code', 'Consolas', 'Courier New', monospace",
+      "editor.fontLigatures": true,
+      "[html]": {
+          "editor.tabSize": 2
+      },
+      "[css]" : {
+          "editor.tabSize": 2
+      }
+  }
+  ```
+
+- `emmet.io` 에서 html 문법 정보 확인
+
+
+
+## Etc
+
+- ctrl + alt + 화살표 -> 동시 입력 가능
+- h1+h2+h3+h4+h5 하고 탭 누르면 동시에 여러개 입력 가능
+
+
+
+# 수업 정리
+
+## Tags
+
+### DOCTYPE 선언과 head
+
+문서의 기본 설정을 하고 title 등을 설정함
+
+```html
+<!--!+tab-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+```
+
+
+
+### Body
+
+문서의 본문이 담기는 곳
+
+```html
+<body>
+  <h1>문서의 제목 - 여는태그/닫는태그</h1>
+  <!-- 닫는 태그가 없는 self-closing 태그도 있습니다. -->
+  <input type="text"> <br> <!--엔터(다음 라인으로)-->
+  <img src="bonobono.jpg" alt="보노보노사진">
+  <hr> <!--수평선을 그려주는 태그-->
+  <div><!--의미가 없지만, 레이아웃을 나누는 태그(display: block)-->
+    <p>div태그의 자식(child)</p>
+    <p>위의 p태그와 형제(sibling)</p>
+  </div>
+  <footer><!--시맨틱 태그 (HTMLS에서 추가한 태그)-->
+    <p>똑같은 영역인데, 여기는 푸터!</p>
+  </footer>
+</body>
+</html>
+```
+
+![1565538828921](./images/1.png)
+
+
+
+
+
