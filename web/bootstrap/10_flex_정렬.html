@@ -14,24 +14,25 @@
       height: 100vh;
       border: 10px solid royalblue;
       display: flex;
-      /* 2.justify content
-      flex direction이 row일 때, 가로 정렬
-                       column일 때, 세로 정렬
-      flex-start(왼쪽)
-      center(가운데)
-      flex-end(오른쪽)
-      space-between(사이에 여백)
-      space-around(item 좌우 여백 동일)
-      space-evenly(item 및 외각 여백 동일)
-      */
       flex-direction: row;
-      justify-content: center;
-      /* 3. align-items 
-          flex-start(시작점)
-          center(가운데)
-          flex-end(끝)
+      /* 2. justify-content (x축)
+        flex-direction이 row일 때, 가로 정렬
+                        column 일 때, 세로 정렬
+        flex-start(왼쪽 - 방향시작)
+        center(가운데)
+        flex-end(오른쪽 - 방향의 끝)
+        space-between(사이에 여백)
+        space-around(item 좌우 여백 동일)
+        space-evenly(item 및 외곽 여백 동일)
       */
-      align-items: baseline;
+      justify-content: space-between;
+      /* 3. align-items (y축)
+        flex-start(시작점)
+        center(가운데)
+        flex-end(끝)
+        baseline : 폰트를 바꿔서 확인!
+      */
+      align-items: center;
     }
 
     .item {
@@ -40,27 +41,27 @@
       font-size: 1rem;
     }
 
-    .items2 {
-      font-size: 1rem;
-    }
-
-    .items2 {
+    /* .item2 {
       font-size: 2rem;
+    }
+    .item3 {
+      font-size: 1rem;
+    } */
     /* 
-    flex-grow
+    1. flex-grow
+    남은 여백을 나눠 가진다.
     기본 값은 0.
-    
-    .item2 {
+    */
+    /* .item2 {
       flex-grow: 2;
     }
     .item3 {
       flex-grow: 3;
-    }*/
+    } */
   </style>
 </head>
 
 <body>
-  <!-- display가 block으로 잡혀있음 -->
   <div class="container p-0">
     <div class="item item1">1</div>
     <div class="item item2">2</div>
