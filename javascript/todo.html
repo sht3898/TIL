@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    h1 {
+      font-size: 5rem;
+    }
+    h2 {
+      font-size: 3rem;
+    }
+    h1, h2, h3, form, ul {
+      text-align: center;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  
+  <h1>Todo List</h1>
+  <h2 id="time"></h2>
+  <!--
+    form은 계속 새로 고침됨
+  -->
+  <form action="">
+    <label for="input">할 일을 입력하세요</label>
+    <input type="text" id="input">
+    <button id="input-button">+</button>
+  </form>
+  <ul id="todo-list">
+    <li> +버튼이 눌리면 리스트에 추가되도록 구현하세요.</li>
+  </ul>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    axios.get("https://source.unsplash.com/1920x1080/?nature")
+      .then(response => {
+        console.log(response.request.responseURL)
+        document.body.style.backgroundImage = `url(${response.request.responseURL})`
+        document.body.style.backgroundSize = 'cover'
+        document.body.style.backgroundPosition = 'center'
+        document.body.style.backgroundRepeat = 'no-repeat'
+      })
+
+
+    function checkTime(i) {
+      if (i < 10) {
+        i = "0" + i;
+      }
+      return i;
+    }
+
+    function startTime() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      // add a zero in front of numbers<10
+      m = checkTime(m);
+      s = checkTime(s);
+      document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+      t = setTimeout(function () {
+        startTime()
+      }, 500);
+    }
+    startTime();
+    // 속도를 위해 일단 불러오고 나중에 실행
+    const form = document.querySelector('form')
+    const button = document.querySelector('#input-button')
+    const input = document.querySelector("#input")
+    const todos = document.querySelector('#todo-list')
+
+
+    form.addEventListener('submit', function (event) {
+      // event가 새로고침되어서 전송되는 것을 막음
+      event.preventDefault()
+
+      // event log가 발생했을때
+      // event.target에 event가 발생한 대상의 정보가 들어있음
+      // this는 event.target, arrow function을 쓰면 this는 window를 가리팀. 사용자제
+      // 위에 있는 input과 scope가 다르기 때문에 const 해도 문제가 없다
+      // const input = event.target.previousElementSibling
+
+      if (input.value) {
+        const li = document.createElement('li')
+        const deleteButton = document.createElement('button')
+        deleteButton.innerText = "삭제"
+        deleteButton.addEventListener('click', function (event) {
+          li.remove()
+        })
+        li.innerText = input.value
+        li.appendChild(deleteButton)
+        input.value = ''
+        todos.appendChild(li)
+      } else {
+        alert('내용을 입력하세요')
+      }
+    })
+
+    
+  </script>
+
+  
+</body>
+
+</html>
