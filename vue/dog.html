@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <img v-for="image in images" v-bind:src="image" alt="댕댕이" width="200px">
+    <!-- 2-3. 반복문 -->
+    <button v-on:click="getDog()">새로운 강아지 보기</button>
+    <p>{{count}}</p>
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        images: [], // 2-1. 배열로 변경
+        count: 0
+      },
+      methods:{
+        getDog: function() {
+          // 요청 보내서 가지고 오면,
+          axios.get("https://dog.ceo/api/breeds/image/random")
+          .then(response => {
+          // imageUrl을 변경
+            console.log(this) // arrow가 아니라면 this가 window여서 저장안됨
+            this.images.push(response.data.message) // 2-2. 배열에 값넣기로 바꾸기
+            this.count ++
+          })
+        }
+      }
+    })
+  </script>
+</body>
+</html>

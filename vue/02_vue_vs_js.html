@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <input type="text" id="input">
+  <p id="input-value"></p>
+
+  <div id="app">
+    <input type="text" v-model="message">
+    {{ message }}
+  </div>
+  <script>
+    // javascript로 작성
+    const input = document.querySelector('#input')
+    input.addEventListener('keydown', function(event){
+      console.log(event.target.value)
+      const p = document.querySelector('#input-value')
+      p.innerText = event.target.value
+    })
+
+    // vue로 작성
+    // m(data) - vm(app) - v(그려지는 것)
+    const app = new Vue({
+      el: '#app', // 조작할 DOM(V), vue object(VM) M
+      
+      data: {
+        message: ''
+      }
+    })
+  </script>
+</body>
+</html>

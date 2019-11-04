@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  {{message}}
+  <div id="app">
+    {{ message }} - {{count}}
+  </div>
+
+  <script>
+    // m(data) - vm(app) - v(그려지는것)
+    const app = new Vue({
+      el: '#app',  // id가 app 선택자,
+      // el: 조작할 DOM(V), vue object(VM) mount(연결)
+      // class, id 선택자를 바탕으로 DOM을 설정
+      data: {
+        // app.message, app.count
+        // app.$data.message, app.$data.count
+        message: '안녕?',
+        count: 0  // Interger, Array, object ...
+      },
+      methods: {
+        // arrow function 쓰면 안됨!
+        plus: function() {
+          this.count ++
+        },
+        minus: function() {
+          this.count --
+        },
+        // arrow로 하면 window를 가르키게 됨
+        arrow: () => { 
+          console.log(this)
+        }
+      }
+    })
+  </script>
+</body>
+</html>
