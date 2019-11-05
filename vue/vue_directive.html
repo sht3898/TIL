@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ message }}</h1>
+    <!--반복문 돌려서 이름 출력
+      for
+        if (같은 라인, 우선순위가 for가 높음)
+    -->
+    <li v-for="member in members" v-if="member.gender==='M'">{{ member.name }}?</li>
+    <li v-else>{{ member.name }}</li>
+    <!--v-model
+      data 내에 초기화가 반드시 필요!
+    -->
+    <input type="text" v-model="userText">
+    <p>사용자가 입력 중..{{ userText }}</p>
+    <!-- 속성값: v-bind
+      v-bind 생략하는 방법으로도 작성 가능
+    -->
+    <img v-bind:src="url" alt="">
+    <img :src="url" alt=""><br>
+    <!-- -->
+    <button v-on:click="countUp">+++++</button>
+    <p>{{ counter }}</p>
+    <button @click="countDown">------</button>
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: { // app.$data
+      url: 'https://joshua1988.github.io/images/posts/web/vuejs/logo.png',
+        message: 'Hello',  // app.message
+        members: [
+          {name: '경호', gender: 'M'},
+          {name: '은비', gender: 'F'},
+          {name: '태우', gender: 'M'}
+        ],
+        userText: '',
+        counter: 0
+      },
+      methods: {
+        countUp: function() {
+          this.counter ++
+          console.log(this.counter)
+        },
+        countDown: function() {
+          this.counter--
+          console.log(this.counter)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

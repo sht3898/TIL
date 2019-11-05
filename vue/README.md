@@ -147,3 +147,62 @@ chrome extension에서 vue.js.develop 설치
 
   
 
+
+
+## 정리(vue_directive.html)
+
+* vue 설치하고 시크릿 모드와 url 링크도 가능하게 설정
+
+* 반복문과 조건문
+
+  * 반복 => v-for
+  * 조건 => v-if
+
+* v-model
+
+  * data에 있는 해당 model을 수정
+
+  * v-model을 사용하려면 data 내에서 초기화 작업 필요
+
+* v-bind
+
+  ```html
+  <!-- 속성값: v-bind
+        v-bind 생략하는 방법으로도 작성 가능
+      -->
+      <img v-bind:src="url" alt="">
+      <img :src="url" alt="">
+  ```
+
+  ```html
+  <script>
+      const app = new Vue({
+        el: '#app',
+        data: { // app.$data
+        url: 'https://joshua1988.github.io/images/posts/web/vuejs/logo.png',
+            ...
+  ```
+
+* v-on:click
+
+  ```html
+  <button v-on:click="countUp">+++++</button>
+      <p>{{ counter }}</p>
+      <button @click="countDown">------</button>
+  ```
+
+  ```html
+  methods: {
+          countUp: function() {
+            this.counter ++
+            console.log(this.counter)
+          },
+          countDown: function() {
+            this.counter--
+            console.log(this.counter)
+          }
+        }
+  ```
+
+  * 단축어로도 사용할 수 있다.(=@click)
+
