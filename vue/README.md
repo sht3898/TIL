@@ -206,3 +206,88 @@ chrome extension에서 vue.js.develop 설치
 
   * 단축어로도 사용할 수 있다.(=@click)
 
+* vue 문법 함수 - function 대신 괄호 사용
+* class에 true, false 구별
+* select를 통해서 할일, 완료 나누기
+
+* data에 key 설정을 해줘야 중복 충돌 문제가 발생하지 않음
+  
+  * [Unix Time]( https://www.epochconverter.com/ )을 반환해서 id 부여
+
+
+
+### computed
+
+* todayByStatus를 methods에서 computed로 옮기기
+
+* computed로 옮기면 함수에서 변수로 바뀌기 때문에 호출할 때 괄호를 빼고 호출함
+
+  ```html
+  <li v-for="todo in todosByStatus" 
+          :class="{completed: todo.completed, true: true, false: false}"
+          :key="todo.id">
+  ```
+
+* methods와 차이점
+
+  * methods : 함수를 실행, 모든 data 변경시마다 계속 호출
+  * computed: 함수의 실행 결과를 계산된(computed) 변수의 값으로 저장
+
+
+
+## Application - Local Storage
+
+* 새로고침할때 초기화되지 않도록 local에 저장하기
+
+  ```js
+  myObj = {name: 'tak'}
+  JSON.stringfy(myObj)
+  jsonData = JSON.stringfy(myObj)
+  JSON.parse(jsonData)
+  localStorage.setItem('me', jsonData)	// localStorage에 저장
+  localStorage.getItem('me')
+  ```
+
+  
+
+* watch - 특정 data의 변경을 추적, 반응
+
+  ```js
+  watch: {  // 특정 data의 변경을 추적, 반응
+          todos: {  // todos를 바라보라 설정
+            handler: function() { // todos가 변경되었을때 실행시킬 함수
+              todoStorage.set(this.todos)
+            }
+          }
+        }
+  ```
+
+  
+
+* mounted
+
+  ```js
+  mounted: function() { // mount 될 때, app을 불러와서 todos에 todoStorage에 저장돼있는 값을 저장
+          console.log('아침이 되었습니다...')
+          this.todos = todoStorage.fetch()
+        }
+  ```
+
+* 자료가 없을때 (null) 오류가 뜨지 않게 저장하기
+
+  ```js
+  mounted: function() { // mount 될 때, app을 불러와서 todos에 todoStorage에 저장돼있는 값을 저장
+          console.log('아침이 되었습니다...')
+          this.todos = todoStorage.fetch()
+          // vue-todo의 자료를 지운 상태(null)에서 저장하면 계속 null만 저장되어서 오류
+        }
+  ```
+
+  ```js
+  fetch() { // 가져오는 작업(JSON -> object 리턴)
+          return JSON.parse(localStorage.getItem('vue-todo') || "[]")
+        }
+  // 이것후에 storage에 저장된 vue-todo를 삭제하고 새로고침
+  ```
+
+  

@@ -24,20 +24,35 @@
     <!-- 속성값: v-bind
       v-bind 생략하는 방법으로도 작성 가능
     -->
-    <img v-bind:src="url" alt="">
-    <img :src="url" alt=""><br>
+    <img v-bind:src="url" alt="" width="50px">
+    <img :src="url" alt="" width="50px"><br>
     <!-- -->
     <button v-on:click="countUp">+++++</button>
     <p>{{ counter }}</p>
     <button @click="countDown">------</button>
+    <!-- computed vs methods -->
+    
+    <h2>methods: {{ dateMethods() }}</h2> <!-- 함수를 실행, 모든 data 변경시마다 계속  호출 -->
+    <h2>computed: {{ dateComputed }}</h2> <!-- 함수의 실행 결과를 계산된(computed) 변수의 값으로 저장 -->
+    <!-- v-text 위/아래 모두 동일한 기능-->
+    <h3 v-text="message"></h3> 
+    <h3>{{ message }}</h3>
+    <!-- html -->
+    {{myTag}}
+    <!-- html 저장된 양식으로 쓰기 -->
+    <span v-html="myTag"></span>
+    <!-- v-show -->
+    <p v-show="false">인성 인성보소.</p>  <!-- 렌더링은 하는데, css로 보이지 않게함.(개발자도구 확인)-->
+    <p v-if="false">태우 바보</p> <!-- 렌더링 자체를 하지 않음. -->
   </div>
 
   <script>
     const app = new Vue({
-      el: '#app',
+      el: '#app', // app.$el
       data: { // app.$data
-      url: 'https://joshua1988.github.io/images/posts/web/vuejs/logo.png',
+        url: 'https://joshua1988.github.io/images/posts/web/vuejs/logo.png',
         message: 'Hello',  // app.message
+        myTag: '<h2>우왕</h2>',
         members: [
           {name: '경호', gender: 'M'},
           {name: '은비', gender: 'F'},
@@ -54,6 +69,14 @@
         countDown: function() {
           this.counter--
           console.log(this.counter)
+        },
+        dateMethods() {
+          return new Date()
+        }
+      },
+      computed: {
+        dateComputed() {
+          return new Date()
         }
       }
     })
