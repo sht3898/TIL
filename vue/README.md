@@ -106,6 +106,43 @@ chrome extension에서 vue.js.develop 설치
 
 
 
+
+## component
+
+[참고링크]( https://kr.vuejs.org/v2/guide/components-registration.html )
+
+데이터를 사용할 때는 함수 형태로 리턴
+
+```js
+data: function() {
+        return {
+          todos: [],
+          newTodo: ''
+        }
+      }
+```
+
+
+
+
+
+## props
+
+[참고링크]( https://kr.vuejs.org/v2/guide/components-props.html )
+
+* 하위 컴포넌트로 데이터 전송 + 검증
+
+* 하위에 있는 데이터를 상위로 올리고 싶을 때 이벤트 사용해야 한다.
+
+  ```js
+  props: ['category'],
+  ```
+
+* props도 검증 가능
+
+
+
+
 ## 강아지
 
 * v-for, v-src 기억하기
@@ -317,4 +354,3 @@ chrome extension에서 vue.js.develop 설치
 [설치링크]( https://nodejs.org/ko/ )
 
 window에서 java
-
