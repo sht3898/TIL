@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <li v-for="number in numbers" v-if="number%2==0">
+      {{ number }}
+    </li>
+        
+    <div class="static" v-bind:class="{ active: isActive, 'error': hasError }">
+      <h1>ggg</h1>
+    </div>
+
+    <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">
+      <h1>hhh</h1>
+    </div>
+
+    <button @click="countUp">+1</button>
+    <h1>Counter: {{ counter }}</h1>
+
+    <button @click="toggle">toggle</button>
+    <h1 v-bind:style="{color: wordsColor}">빨강과 파랑을 섞으면 보라색이 됩니다.</h1>
+    
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        numbers : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        isActive: true,
+        hasError: false,
+        activeColor: 'red',
+        fontSize: 30,
+        counter: 0,
+        wordsColor: 'red',
+      },
+      methods: {
+        countUp() {
+          this.counter ++
+        },
+        toggle() {
+          if (this.wordsColor == 'red'){
+            this.wordsColor = 'blue'
+          }else{
+            this.wordsColor = 'red'
+          }
+        },
+      }
+    })
+  </script>
+</body>
+</html>

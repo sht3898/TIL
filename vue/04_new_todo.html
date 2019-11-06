@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    body {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="newTodo">
+    <button @click="addTodo">입력</button>
+
+    <h1>오늘 할일</h1>
+    <li v-for="todo in todos" :key="todo.id">
+      {{ todo.content }}
+      <button @click="removeTodo(todo)">삭제</button>
+    </li>
+  </div>
+
+  <script>
+    // const todoStorage = {
+      // fetch() {
+      //   return JSON.parse(localStorage.getItem('vue-todo') || '[]')
+      // },
+    //   set(todos) {
+    //     localStorage.setItem('vue-todo', JSON.stringify(this.todos))
+    //   }
+    // }
+    const app = new Vue({
+      el: '#app',
+      data: {
+        newTodo: '',
+        todos: [],
+      },
+      methods: {
+        addTodo() {
+          this.todos.push({
+            id: Date.now(),
+            content: this.newTodo,
+            completed: false,
+          })
+          this.newTodo = ''
+        },
+        removeTodo: function(deleteTodo) {
+          this.todos = this.todos.filter(todo => {
+            return todo.id !== deleteTodo.id
+          })
+        }
+      },
+      // watch가 빠지면 자료가 저장이 안 되어있기 때문에 새로고침할 때 자료가 없음
+      watch: {
+        todos: {
+          handler: function() {
+            localStorage.setItem('vue-todo', JSON.stringify(this.todos))
+          },
+          deep: true
+        }
+      },
+      mounted: function() {
+        this.todos = JSON.parse(localStorage.getItem('vue-todo') || '[]')
+      }
+    })
+  </script>
+</body>
+</html>

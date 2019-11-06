@@ -71,7 +71,6 @@ chrome extension에서 vue.js.develop 설치
         }
   ```
 
-  
 
 * 이미지 추가
 
@@ -94,6 +93,15 @@ chrome extension에서 vue.js.develop 설치
 
 
 
+## 실습
+
+
+* 사용자 입력 받고 버튼 누르면
+  
+  * todos 변수에 추가 (addTodo)
+* 각 todo 들에게 버튼(삭제)
+  
+  * 해당 todo 삭제(removeTodo)
 
 
 
@@ -149,7 +157,7 @@ chrome extension에서 vue.js.develop 설치
 
 
 
-## 정리(vue_directive.html)
+# 정리(vue_directive.html)
 
 * vue 설치하고 시크릿 모드와 url 링크도 가능하게 설정
 
@@ -216,7 +224,7 @@ chrome extension에서 vue.js.develop 설치
 
 
 
-### computed
+## computed
 
 * todayByStatus를 methods에서 computed로 옮기기
 
@@ -290,4 +298,23 @@ chrome extension에서 vue.js.develop 설치
   // 이것후에 storage에 저장된 vue-todo를 삭제하고 새로고침
   ```
 
-  
+* [moment.js]( https://momentjs.com/ )
+
+
+
+
+
+# 폼 입력 바인딩
+
+데이터에 초기화된 값 항상 등록해주기
+
+
+
+
+
+# Node.js
+
+[설치링크]( https://nodejs.org/ko/ )
+
+window에서 java
+
