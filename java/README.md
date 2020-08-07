@@ -91,6 +91,22 @@
 * `open hierarchy`를 통해 상속 관계를 볼 수 있음
 * `override` => 자식 메소드가 부모 메소드의 기능을 덮어씀
 
+## 직접 컴파일하고 실행하기
+
+* `cmd`에서 `javac`명령어를 통해 사용법을 알 수 있음
+
+* `javac`는 `C:\Program Files\Java\jdk-13.0.2\bin` 경로에 있는 `javac.exe`를 읽어오는 것
+
+* `path` 환경변수를 통해 경로확인
+
+* `cd`: change directory의 약자, 이동하는 기능
+
+* `ls`: 디렉토리내의 파일을 보여줌
+
+* `dir`: 윈도우에서 파일 확인
+
+  
+
 
 
 ## 나의 앱 만들기
