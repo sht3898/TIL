@@ -111,3 +111,37 @@
 
 ## 나의 앱 만들기
 
+### 메소드
+
+* 메소드 생성을 통해 코드를 더 깔끔하게 구성할 수 있음
+* 메소드를 만들때 local 변수는 사용할 수 없으므로 `public class 클래스명`과 `public static main void(String args[])` 사이에 `public static 변수자료형 변수명` 형태로 변수를 선언
+
+### 클래스
+
+* 상단 메뉴에서 `Window - Show View - Outline`을 설정하여 띄움
+* `Outline`는 클래스 소속의 멤버(변수, 클래스)를 보여줌
+
+
+
+### 인스턴스
+
+* 서로 다른 데이터 값과 서로 같은 메소드를 가진 복제본을 만드는 것
+* 인스턴스를 사용하기 위해서는 사용될 변수와 클래스에 `static`이 붙어있으면 안됨
+
+
+
+
+
+## method
+
+* `public`,  `private`, `protected`, `default`
+* `public`: 클래스 어디에서나 사용 가능
+* `private`: 같은 클래스 안에서만 사용 가능
+
+
+
+## static
+
+* `static`: class method, 클래스 변수일때 사용
+* `no static`: instance method, 인스턴스 변수일때 사용
+* `void`는 리턴 값이 없다는 의미
