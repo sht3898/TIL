@@ -11,7 +11,7 @@ public class test {
 		Stack<Integer> s = new Stack<Integer>();
 		Scanner sc = new Scanner(System.in);
 		char abc = 'a';
-		String s = "My name is ";
+//		String s = "My name is ";
 		System.out.println(abc);
 		System.out.println(s);
 		for(int i=0; i<10; i++) {
