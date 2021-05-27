@@ -199,7 +199,34 @@
 
 ## AWS
 
+
+
 ## NoSQL
+
+
 
 ## 서버리스
 
+
+
+## Mutable vs Immutable 자료형(자바 기준)
+
+
+
+## OSI 7계층
+
+
+
+## AOP
+
+
+
+## 자바에서 new 객체 vs 바로 대입
+
+[참고링크](https://ict-nroo.tistory.com/18)
+
+
+
+## 파이썬에서의 메모리 관리
+
+[참고링크](https://dc7303.github.io/python/2019/08/06/python-memory/)
