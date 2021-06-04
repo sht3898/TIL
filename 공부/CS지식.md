@@ -283,6 +283,70 @@
 
 
 
+## TCP/UDP
+
+### Transport Layer
+
+* 신뢰성: 데이터를 순차적, 안정적인 전달
+* 전송: 포트 번호에 해당하는 프로세스에 데이터를 전달
+
+### TCP(Transmission Control Protocol)
+
+* 신뢰성 있는 데이터 통신을 가능하게 해주는 프로토콜
+* 특징: Connection 연결(3 way handshake) - 양방향 통신
+* 데이터의 순차 전송을 보장
+* Flow Control (흐름 제어)
+* Congestion Control (혼잡 제어)
+* Error Detection (오류 감지)
+
+![img](./segment.png)
+
+* 세그먼트(Segement) - TCP 프로토콜의 PDU(Protocol Data Unit, 프로토콜 데이터 단위)
+  * 전송하고자 하는 데이터를 잘라서 TCP Header와 결합되어 만들어지는 단위
+  * **프로토콜 데이터 단위**(Protocol Data Unit)는 데이터 통신에서 상위 [계층](https://ko.wikipedia.org/wiki/OSI_모형)이 전달한 데이터에 붙이는 제어정보를 뜻함
+* 전송의 신뢰성은 보장하지만 매번 Connection을 연결해서 시간 손실 발생(3 way-handshake)
+* 패킷을 조금만 손실해서 재전송
+
+
+
+#### 3-way handshake (Connection 연결)
+
+![img](./3way.png)
+
+* SYN 비트를 1로 설정해 패킷 송신
+* SYN, ACK 비트를 1로 설정해 패킷 송신
+* ACK 비트를 1로 설정해 패킷 송신
+* 만약 ACK를 수신하지 못하면 재전송
+
+
+
+#### 4-way handshake (Connection close 할때)
+
+![img](./4way.png)
+
+* 데이터를 전부 송신한 Client가 FIN 송신
+* Server가 ACK 송신
+* Server에서 남은 패킷 송신 (일정 시간 대기)
+* Server가 FIN 송신
+* Client가 ACK 송신
+
+
+
+### UDP(User Datagram Protocol)
+
+* TCP보다 신뢰성이 떨어지지만 전송 속도가 일반적으로 빠른 프로토콜(순차 전송X, 흐름 제어X, 혼잡 제어X)
+* Connectionless (3 way-handshake X)
+* Error Detection
+* 비교적 데이터의 신뢰성이 중요하지 않을 때 사용(ex. 영상 스트리밍)
+* User Datagram - UDP 프로토콜의 PDU
+
+![img](./udp.png)
+
+
+
+
+
+
 ## 클라이언트/서버 패러다임
 
 
