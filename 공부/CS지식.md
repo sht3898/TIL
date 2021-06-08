@@ -360,6 +360,10 @@
 
 ## AOP
 
+> Aspect Oriented Programming
+>
+> 공통 관심 사항(Cross-cutting concern)과 핵심 관심 사항(core concern) 분리
+
 
 
 ## 자바에서 new 객체 vs 바로 대입
