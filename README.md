@@ -29,3 +29,38 @@
 * 기술면접 대비
 
 * [기술면접](./기술면접)  
+
+
+
+
+
+## Git
+
+> github 저장소 최초 생성 시 안내 메시지
+
+```bash
+echo "# abc" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/sht3898/abc.git
+git push -u origin main
+```
+
+* origin
+
+  * 원격 저장소의 이름
+  * 기본적으로는 origin 이고 새롭게 추가하고 싶은 위치의 이름을 정해서 추가해도 됨
+
+  ```bash
+  git remote add origin https://github.com/sht3898/abc.git
+  
+  git remote add second
+  https://github.com/sht3898/zyx.git
+  ```
+
+* main
+  * 브랜치의 이름
+  * 기본적으로는 main이고 자신이 설정한 branch 명에 따라 달라짐
+
